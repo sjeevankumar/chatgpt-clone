@@ -18,7 +18,7 @@ function NewPrompt({ data }) {
 
   const chat = model.startChat({
     history: [
-      data?.history.map(({ role, parts }) => ({
+      ...data?.history.map(({ role, parts }) => ({
         role,
         parts: [{ text: parts[0].text }],
       })),
