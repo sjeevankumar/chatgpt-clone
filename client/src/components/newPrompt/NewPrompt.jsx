@@ -18,14 +18,10 @@ function NewPrompt({ data }) {
 
   const chat = model.startChat({
     history: [
-      {
-        role: "user",
-        parts: [{ text: "Hello, I have 2 dogs in my house." }],
-      },
-      {
-        role: "model",
-        parts: [{ text: "Great to meet you. What would like to know?" }],
-      },
+      data?.history.map(({ role, parts }) => ({
+        role,
+        parts: [{ text: parts[0].text }],
+      })),
     ],
   })
   const endRef = useRef(null)
